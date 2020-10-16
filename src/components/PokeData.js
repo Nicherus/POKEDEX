@@ -1,42 +1,46 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom'
+import { useHistory } from 'react-router';
 import axios from 'axios';
 
 import leftarrow from '../assets/leftarrow.svg'
 import rightarrow from '../assets/rightarrow.svg'
 
 
-export default function PokeData(props){
+export default function PokeData(){
     
+    const params = useParams();
+    const history = useHistory();
+
     const [pokeData, setPokeData] = useState(null);
-    const [pokeId, setPokeId] = useState(props.location.state.id);
+    const [pokeId, setPokeId] = useState(null);
+
 
     useEffect(() => {
         renderPoke();
       }, []);
 
     const renderPoke = () =>{
-        const request = axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeId}`);
+        const request = axios.get(`https://pokeapi.co/api/v2/pokemon/${JSON.parse(params.id)}`);
         request.then(res => {
+            setPokeId(JSON.parse(params.id));
             setPokeData(res.data);
         })
     }
 
     const nextPoke = () =>{
-        console.log("next poke");
-        setPokeId(pokeId + 1);
+        history.push({pathname: `/pokemon/${pokeId + 1}`});
         renderPoke();
     }
 
-
     const previousPoke = () =>{
-        console.log("previous poke");
-        setPokeId(pokeId - 1);
+        history.push({pathname: `/pokemon/${pokeId - 1}`});
         renderPoke();
     }
 
     return(
         <>
-            {pokeData ?
+            {(pokeData && pokeId) ?
                 <div className="main-data">
                     <div className="data-perfil">
                         <img className="arrow" src={leftarrow} onClick={() => previousPoke()}></img>

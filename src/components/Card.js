@@ -6,16 +6,7 @@ const Card = (props) => {
     const history = useHistory();
 
     const routerToPokeData = (id) => {
-        
-        console.log("routing to poke data", id);
-        
-        history.push({
-            // pathname: `/pokemon/${id}`,
-            pathname: `/pokemon/`,
-            state:{
-                id
-              }
-        })
+        history.push({pathname: `/pokemon/${id}`})
     }
 
     return(

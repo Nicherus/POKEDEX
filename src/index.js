@@ -19,7 +19,7 @@ ReactDOM.render(
       <Header/>
       <Switch>
         <Route path="/" exact component={App} />
-        <Route path="/pokemon/" exact component={PokeData} />
+        <Route path="/pokemon/:id" exact component={PokeData} />
       </Switch>
     </Router>
   </React.StrictMode>,
