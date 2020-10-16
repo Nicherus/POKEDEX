@@ -9,10 +9,10 @@ Repositório de referência:
 # Requisitos
 
 - Geral
-    - [ ]  Manipule o HTML usando somente React (sem usar o document nem bibliotecas como jQuery)
-    - [ ]  Seu projeto deverá ser desenvolvido utilizando Git e GitHub
-    - [ ]  Para isso, comece fazendo um **fork** **privado** do projeto de referência:
-    - [ ]  **A cada requisito implementado** faça um commit com uma mensagem descritiva do que você evoluiu. Caso queira dividir um requisito em vários commits, não há problema. Mas evite colocar mais de um requisito no mesmo commit
+    - [X]  Manipule o HTML usando somente React (sem usar o document nem bibliotecas como jQuery)
+    - [X]  Seu projeto deverá ser desenvolvido utilizando Git e GitHub
+    - [X]  Para isso, comece fazendo um **fork** **privado** do projeto de referência:
+    - [X]  **A cada requisito implementado** faça um commit com uma mensagem descritiva do que você evoluiu. Caso queira dividir um requisito em vários commits, não há problema. Mas evite colocar mais de um requisito no mesmo commit
 - Layout
     - [ ]  Aplicar layout para mobile, seguindo imagens fornecida (não é necessário implementar um layout para desktop)
     - [ ]  Topo deve ser fixo
