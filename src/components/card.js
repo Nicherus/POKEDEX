@@ -11,7 +11,6 @@ import {
 export default function card(props) {
 
     const getPokeData = () =>{
-        console.log("getting poke data");
         console.log(props.poke)
         routerToPokeData();
     }

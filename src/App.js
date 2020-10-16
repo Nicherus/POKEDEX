@@ -19,11 +19,15 @@ function App() {
     <>
       {poke ? 
         <div className="main">
-          <Card
-          poke={poke}
-          id={113}
-          name={poke[112].name}
-          />
+          {poke.map((item, index) => {
+            return(
+              <Card
+              poke={item}
+              id={index + 1}
+              name={item.name}
+              />
+            )
+          })}
         </div>
       : <p>CARREGANDO...</p>
       }
