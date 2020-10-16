@@ -2,8 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
-import './styles/header.css';
 import './styles/reset.css';
+import './styles/header.css';
+import './styles/main.css';
+import './styles/card.css';
 
 import Header from './components/header';
 
