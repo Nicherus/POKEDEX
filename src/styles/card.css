@@ -1,0 +1,36 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    height: 17rem;
+    width: 17rem;
+    margin: 1rem;
+    background: #ffffff;
+    border-radius: 1.3rem;
+    box-shadow: 0px 4px 19px -4px rgba(0,0,0,0.65);
+}
+
+.poke-img{
+    margin-top: 7%;
+    width: 60%;
+    height: 60%;
+}
+
+.poke-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+}
+
+.poke-name{
+    color: black;
+    margin-bottom: 5%;
+}
+
+.poke-id{
+    color: gray;
+}

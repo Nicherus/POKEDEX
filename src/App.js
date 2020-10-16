@@ -1,21 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+
+import getPokemons from './components/data/getPokemons'
+
+import Card from './components/card';
 
 
 function App() {
-  const [pokemons, setPokemons] = useState({});
+
+  const [poke, setPoke] = useState(null);
 
   useEffect(() => {
-    const request = axios.get("https://pokeapi.co/api/v2/pokemon?limit=893");
-    request.then(res => {
-      setPokemons(res.data.results);
-    })
+    setPoke(getPokemons());
+    console.log(poke)
   }, []);
 
 
   return (
-    <>
-    </>
+    <div className="main">
+      <Card
+      poke={poke}
+      id={384}
+      name={'Rayquaza'}
+      />
+    </div>
   );
 }
 
