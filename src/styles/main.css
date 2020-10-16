@@ -1,5 +1,6 @@
 body{
     background: #FAFAFA;
+    font-size: 1.8rem;
 }
 
 .main{
@@ -9,4 +10,9 @@ body{
     flex-wrap: wrap;
     padding-top: 8rem;
     font-family: 'Roboto', sans-serif;
+    text-transform: capitalize;
+}
+
+.loading{
+    font-size: 3rem;
 }

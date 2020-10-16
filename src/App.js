@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import Card from './components/card';
+import Card from './components/Card';
 
 
 function App() {
@@ -10,7 +10,6 @@ function App() {
 
   useEffect(() => {
     const request = axios.get("https://pokeapi.co/api/v2/pokemon?limit=893");
-
     request.then(res => setPoke(res.data.results))
   }, []);
 
@@ -29,7 +28,10 @@ function App() {
             )
           })}
         </div>
-      : <p>CARREGANDO...</p>
+      : 
+        <div className="main">
+          <div className="loading">CARREGANDO...</div>
+        </div>
       }
     </>
   );

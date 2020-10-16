@@ -18,17 +18,18 @@ Repositório de referência:
     - [X]  Topo deve ser fixo
     - [X]  Hexadecimal do vermelho: #E44141
 - Lista de Pokémon
-    - [ ]  Ao entrar na página inicial (`"/"`), deverá ser carregada uma lista com todos os Pokémon da API, seguindo o layout fornecido
+    - [X]  Ao entrar na página inicial (`"/"`), deverá ser carregada uma lista com todos os Pokémon da API, seguindo o layout fornecido
         - URL da API para buscar todos os Pokémon: [https://pokeapi.co/api/v2/pokemon?limit=893](https://pokeapi.co/api/v2/pokemon?limit=893)
-    - [ ]  Enquanto a lista está carregando, deve ser exibida uma mensagem de "Carregando" na tela
-    - [ ]  Ao clicar em um Pokémon, o usuário deverá ser encaminhado para a rota `"/pokemon/:id"` em que no lugar de **:id** entre o id do Pokémon conforme retornou da API
+    - [X]  Enquanto a lista está carregando, deve ser exibida uma mensagem de "Carregando" na tela
+    - [X]  Ao clicar em um Pokémon, o usuário deverá ser encaminhado para a rota `"/pokemon/:id"` em que no lugar de **:id** entre o id do Pokémon conforme retornou da API
         - Dica: a API não retorna o id explicitamente, porém ela retorna uma URL do Pokémon, e o último parâmetro dessa URL é o id. Para pegar somente o id de dentro dessa string, pesquise pelo método `.split()` e quebre essa string a cada barra (`/`)
 - Página de um Pokémon
-    - [ ]  Ao entrar na página de um Pokémon, deverão ser carregados os dados daquele Pokémon a partir da API e exibidos conforme layout fornecido
+    - [X]  Ao entrar na página de um Pokémon, deverão ser carregados os dados daquele Pokémon a partir da API e exibidos conforme layout fornecido
         - URL da API para obter um Pokémon: [https://pokeapi.co/api/v2/pokemon/:id](https://pokeapi.co/api/v2/pokemon/:id), onde :id é o id do Pokémon
-    - [ ]  Enquanto os dados do Pokémon estão carregando, deve ser exibida uma mensagem de "Carregando" na tela
-    - [ ]  Ao clicar em "Voltar", o usuário deve retornar para a página inicial
-    - [ ]  Ao clicar em Próximo/Anterior, o usuário deve ser redirecionado para a página referente ao Pokémon correspondente, seguindo a ordem que vem da API
+        - Dica: para pegar o id da URL da sua aplicação, pesquise pela função useParams() do React Router
+    - [X]  Enquanto os dados do Pokémon estão carregando, deve ser exibida uma mensagem de "Carregando" na tela
+    - [X]  Ao clicar em "Voltar", o usuário deve retornar para a página inicial
+    - [X]  Ao clicar em Próximo/Anterior, o usuário deve ser redirecionado para a página referente ao Pokémon correspondente, seguindo a ordem que vem da API
         - Para isso, some/subtraia 1 do id do Pokémon
     - [ ]  Caso o usuário esteja visualizando o primeiro/último Pokémon, trate para não exibir o botão de Próximo/Anterior
 
