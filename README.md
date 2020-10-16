@@ -14,9 +14,9 @@ Repositório de referência:
     - [X]  Para isso, comece fazendo um **fork** **privado** do projeto de referência:
     - [X]  **A cada requisito implementado** faça um commit com uma mensagem descritiva do que você evoluiu. Caso queira dividir um requisito em vários commits, não há problema. Mas evite colocar mais de um requisito no mesmo commit
 - Layout
-    - [ ]  Aplicar layout para mobile, seguindo imagens fornecida (não é necessário implementar um layout para desktop)
-    - [ ]  Topo deve ser fixo
-    - [ ]  Hexadecimal do vermelho: #E44141
+    - [X]  Aplicar layout para mobile, seguindo imagens fornecida (não é necessário implementar um layout para desktop)
+    - [X]  Topo deve ser fixo
+    - [X]  Hexadecimal do vermelho: #E44141
 - Lista de Pokémon
     - [ ]  Ao entrar na página inicial (`"/"`), deverá ser carregada uma lista com todos os Pokémon da API, seguindo o layout fornecido
         - URL da API para buscar todos os Pokémon: [https://pokeapi.co/api/v2/pokemon?limit=893](https://pokeapi.co/api/v2/pokemon?limit=893)
@@ -37,11 +37,3 @@ Repositório de referência:
 - Busca
     - [ ]  Na tela de listagem de Pokémon, implementar uma busca pelo nome do Pokémon
     - [ ]  Essa busca pode ser pelo próprio JS (sem mandar nenhum novo request pra API). Basta filtrar a array de Pokémon exibida, verificando se o nome do Pokémon contém a palavra digitada no campo de busca
-
-# Layout
-
-![./docs/img/pagina-inicial.png](./docs/img/pagina-inicial.png)
-
-![./docs/img/pagina-pokemon.png](./docs/img/pagina-pokemon.png)
-
-![./docs/img/bonus-busca.png](./docs/img/bonus-busca.png)
