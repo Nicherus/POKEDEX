@@ -14,6 +14,8 @@ export default function PokeData(){
 
     const [pokeData, setPokeData] = useState(null);
     const [pokeId, setPokeId] = useState(null);
+    const [reachMin, setReachMin] = useState(false);
+    const [reachMax, setReachMax] = useState(false);
 
 
     useEffect(() => {
@@ -29,11 +31,23 @@ export default function PokeData(){
     }
 
     const nextPoke = () =>{
+        if(pokeId === 0){
+            setReachMin(false)
+        }
+        if(pokeId === 893){
+            setReachMax(true);
+        }
         history.push({pathname: `/pokemon/${pokeId + 1}`});
         renderPoke();
     }
 
     const previousPoke = () =>{
+        if(pokeId === 894){
+            setReachMax(false);
+        }
+        if(pokeId === 1){
+            setReachMin(true);
+        }
         history.push({pathname: `/pokemon/${pokeId - 1}`});
         renderPoke();
     }
@@ -43,13 +57,21 @@ export default function PokeData(){
             {(pokeData && pokeId) ?
                 <div className="main-data">
                     <div className="data-perfil">
-                        <img className="arrow" src={leftarrow} onClick={() => previousPoke()}></img>
+                        {reachMin ?
+                            null
+                        :   
+                            <img className="arrow" draggable="false" src={leftarrow} onClick={() => previousPoke()}></img> 
+                        }
                         <div className="data-perfil-poke">
                             <img className="data-perfil-img" draggable="false" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokeId}.png`}/>
                             <div className="poke-name">{pokeData.forms[0].name}</div>
                             <div className="poke-id">#{pokeId}</div>
                         </div>
-                        <img className="arrow" src={rightarrow} onClick={() => nextPoke()}></img>
+                        {reachMax ?
+                            null
+                        :   
+                            <img className="arrow" draggable="false" src={rightarrow} onClick={() => nextPoke()}></img> 
+                        }
                     </div>
                     <div className="data-status">
                         <div className="size-exp">
