@@ -8,11 +8,30 @@ body{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    padding-top: 8rem;
     font-family: 'Roboto', sans-serif;
     text-transform: capitalize;
 }
 
-.loading{
-    font-size: 3rem;
+.search-div{
+    text-align: center;
+    width: 100%;
+    padding: 1rem;
+    margin-top: 7rem;
 }
+
+input{
+    padding: 0.5rem 2rem;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    opacity: 0.65;
+    background-color: #FAFAFA;
+    outline: none;
+}
+
+.loading{
+    margin-top: 25%;
+    border-radius: 50%;
+}
+
+

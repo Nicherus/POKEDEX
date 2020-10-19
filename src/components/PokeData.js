@@ -6,16 +6,17 @@ import axios from 'axios';
 import leftarrow from '../assets/leftarrow.svg'
 import rightarrow from '../assets/rightarrow.svg'
 
+import spinner from '../assets/pokeloading.gif'
+
 
 export default function PokeData(){
     
     const history = useHistory();
     const params = useParams();
-    let pokeId = params.id;
+    
+    let pokeId = JSON.parse(params.id);
 
     const [pokeData, setPokeData] = useState(null);
-    const [reachMin, setReachMin] = useState(false);
-    const [reachMax, setReachMax] = useState(false);
 
 
     useEffect(() => {
@@ -23,31 +24,20 @@ export default function PokeData(){
       }, [pokeId]);
 
     const renderPoke = () =>{
-        const request = axios.get(`https://pokeapi.co/api/v2/pokemon/${JSON.parse(pokeId)}`);
+        const request = axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeId}`);
+        setTimeout(() => {}, 4000);
         request.then(res => {
             setPokeData(res.data);
         })
     }
 
     const nextPoke = () =>{
-        if(pokeId === 0){
-            setReachMin(false)
-        }
-        if(pokeId === 893){
-            setReachMax(true);
-        }
         pokeId++
         history.push({pathname: `/pokemon/${pokeId}`});
         renderPoke();
     }
 
     const previousPoke = () =>{
-        if(pokeId === 894){
-            setReachMax(false);
-        }
-        if(pokeId === 1){
-            setReachMin(true);
-        }
         pokeId--;
         history.push({pathname: `/pokemon/${pokeId}`});
         renderPoke();
@@ -55,20 +45,25 @@ export default function PokeData(){
 
     return(
         <>
-            {(pokeData && pokeId) ?
+            {(pokeData) ?
                 <div className="main-data">
                     <div className="data-perfil">
-                        {reachMin ?
+                        {(pokeId <= 1 ) ?
                             null
                         :   
                             <img className="arrow" draggable="false" src={leftarrow} onClick={() => previousPoke()}></img> 
                         }
                         <div className="data-perfil-poke">
-                            <img className="data-perfil-img" draggable="false" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokeId}.png`}/>
+                            <img className="data-perfil-img" draggable="false" src={
+                                (pokeId < 650) ? 
+                                    `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokeId}.gif` 
+                                : 
+                                    `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokeId}.png`}
+                                />
                             <div className="poke-name">{pokeData.name}</div>
                             <div className="poke-id">#{pokeId}</div>
                         </div>
-                        {reachMax ?
+                        {(pokeId >= 893 ) ?
                             null
                         :   
                             <img className="arrow" draggable="false" src={rightarrow} onClick={() => nextPoke()}></img> 
@@ -109,7 +104,7 @@ export default function PokeData(){
                 </div>
             :
                 <div className="main">
-                    <div className="loading">CARREGANDO...</div>
+                    <img src={spinner} className="loading" alt='loading...'/>
                 </div>
             }
         </>

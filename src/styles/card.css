@@ -4,18 +4,18 @@
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
-    height: 17rem;
-    width: 17rem;
+    height: 12rem;
+    width: 12rem;
     margin: 1rem;
     background: #ffffff;
-    border-radius: 1.3rem;
+    border-radius: 15%;
     box-shadow: 0px 4px 19px -4px rgba(0,0,0,0.65);
 }
 
 .poke-img{
     margin-top: 7%;
-    width: 60%;
-    height: 60%;
+    max-width: 90%;
+    height: 45%;
 }
 
 .poke-text{
@@ -29,6 +29,7 @@
 .poke-name{
     color: black;
     margin-bottom: 5%;
+    font-size: 2.2vh;
 }
 
 .poke-id{

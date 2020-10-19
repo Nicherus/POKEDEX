@@ -11,7 +11,12 @@ const Card = (props) => {
 
     return(
         <div className="card" onClick={() => routerToPokeData(props.id)} >
-            <img className="poke-img" draggable="false" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${props.id}.png`}/>
+            <img className="poke-img" draggable="false" src={
+                (props.id < 650) ? 
+                    `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${props.id}.gif` 
+                : 
+                    `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${props.id}.png`}
+                />
             <div className="poke-text">
                 <div className="poke-name">{props.name}</div>
                 <div className="poke-id">#{props.id}</div>

@@ -37,8 +37,8 @@
 }
 
 .data-perfil-img{
-    height: 10rem;
-    width: 10rem;
+    height: 50%;
+    width: auto;
 }
 
 .data-status{

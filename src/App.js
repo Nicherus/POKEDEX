@@ -3,34 +3,54 @@ import axios from 'axios';
 
 import Card from './components/Card';
 
+import spinner from './assets/pokeloading.gif'
+import Search from './components/Search';
 
 function App() {
 
   const [poke, setPoke] = useState(null);
+  const [searchText, setSearchText] = useState('');
 
   useEffect(() => {
     const request = axios.get("https://pokeapi.co/api/v2/pokemon?limit=893");
-    request.then(res => setPoke(res.data.results))
+    
+    request.then(res => {
+      setPoke(res.data.results.map(f => {
+        const id = f.url.split('/')
+        return {
+          name: f.name,
+          id: id[6]
+        }
+      }))
+    })
   }, []);
 
 
   return (
     <>
       {poke ? 
-        <div className="main">
-          {poke.map((item, index) => {
-            return(
-              <Card
-              poke={item}
-              id={index + 1}
-              name={item.name}
-              />
-            )
-          })}
-        </div>
+        <>
+          <Search
+            searchText={searchText}
+            setSearchText={setSearchText}
+          />
+          <div className="main">
+
+            {poke
+            .filter(s => s.name.includes(searchText))
+            .map((item) => {
+              return(
+                <Card
+                id={item.id}
+                name={item.name}
+                />
+              )
+            })}
+          </div>
+        </>
       : 
         <div className="main">
-          <div className="loading">CARREGANDO...</div>
+          <img src={spinner} className="loading" alt='loading...'/>
         </div>
       }
     </>
