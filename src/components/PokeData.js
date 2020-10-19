@@ -9,23 +9,22 @@ import rightarrow from '../assets/rightarrow.svg'
 
 export default function PokeData(){
     
-    const params = useParams();
     const history = useHistory();
+    const params = useParams();
+    let pokeId = params.id;
 
     const [pokeData, setPokeData] = useState(null);
-    const [pokeId, setPokeId] = useState(null);
     const [reachMin, setReachMin] = useState(false);
     const [reachMax, setReachMax] = useState(false);
 
 
     useEffect(() => {
         renderPoke();
-      }, []);
+      }, [pokeId]);
 
     const renderPoke = () =>{
-        const request = axios.get(`https://pokeapi.co/api/v2/pokemon/${JSON.parse(params.id)}`);
+        const request = axios.get(`https://pokeapi.co/api/v2/pokemon/${JSON.parse(pokeId)}`);
         request.then(res => {
-            setPokeId(JSON.parse(params.id));
             setPokeData(res.data);
         })
     }
@@ -37,7 +36,8 @@ export default function PokeData(){
         if(pokeId === 893){
             setReachMax(true);
         }
-        history.push({pathname: `/pokemon/${pokeId + 1}`});
+        pokeId++
+        history.push({pathname: `/pokemon/${pokeId}`});
         renderPoke();
     }
 
@@ -48,7 +48,8 @@ export default function PokeData(){
         if(pokeId === 1){
             setReachMin(true);
         }
-        history.push({pathname: `/pokemon/${pokeId - 1}`});
+        pokeId--;
+        history.push({pathname: `/pokemon/${pokeId}`});
         renderPoke();
     }
 
@@ -64,7 +65,7 @@ export default function PokeData(){
                         }
                         <div className="data-perfil-poke">
                             <img className="data-perfil-img" draggable="false" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokeId}.png`}/>
-                            <div className="poke-name">{pokeData.forms[0].name}</div>
+                            <div className="poke-name">{pokeData.name}</div>
                             <div className="poke-id">#{pokeId}</div>
                         </div>
                         {reachMax ?
