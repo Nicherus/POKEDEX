@@ -31,10 +31,10 @@ Repositório de referência:
     - [X]  Ao clicar em "Voltar", o usuário deve retornar para a página inicial
     - [X]  Ao clicar em Próximo/Anterior, o usuário deve ser redirecionado para a página referente ao Pokémon correspondente, seguindo a ordem que vem da API
         - Para isso, some/subtraia 1 do id do Pokémon
-    - [ ]  Caso o usuário esteja visualizando o primeiro/último Pokémon, trate para não exibir o botão de Próximo/Anterior
+    - [X]  Caso o usuário esteja visualizando o primeiro/último Pokémon, trate para não exibir o botão de Próximo/Anterior
 
 # Bônus
 
 - Busca
-    - [ ]  Na tela de listagem de Pokémon, implementar uma busca pelo nome do Pokémon
-    - [ ]  Essa busca pode ser pelo próprio JS (sem mandar nenhum novo request pra API). Basta filtrar a array de Pokémon exibida, verificando se o nome do Pokémon contém a palavra digitada no campo de busca
+    - [X]  Na tela de listagem de Pokémon, implementar uma busca pelo nome do Pokémon
+    - [X]  Essa busca pode ser pelo próprio JS (sem mandar nenhum novo request pra API). Basta filtrar a array de Pokémon exibida, verificando se o nome do Pokémon contém a palavra digitada no campo de busca
