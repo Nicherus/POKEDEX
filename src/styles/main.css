@@ -20,6 +20,7 @@ body{
 }
 
 input{
+    width: 16rem;
     padding: 0.5rem 2rem;
     border-top-style: hidden;
     border-right-style: hidden;

@@ -7,7 +7,7 @@ const Search = (props) => {
     return(
         <div className="search-div">
         <input 
-            placeholder={'Search your favorite Poké'}
+            placeholder={'Search your favorite Pokémon'}
             onChange={event => setSearchText(event.target.value)}
             value={searchText}
         />
